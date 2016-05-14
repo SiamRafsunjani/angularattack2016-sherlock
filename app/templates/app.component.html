@@ -1,0 +1,17 @@
+<div class="mdl-layout mdl-js-layout">
+    <div style="text-align: -webkit-center;">
+        <h1>{{appTitle}}</h1>
+        <!-- Accent-colored raised button with ripple -->
+        <div *ngIf="isSessionSet">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+            {{ButtonText}}
+          </button>
+        </div>
+        <div *ngIf="!isSessionSet">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="connectWithGithub()">
+            {{ButtonText}}
+        </button>
+        </div>
+
+           </div>
+</div>
