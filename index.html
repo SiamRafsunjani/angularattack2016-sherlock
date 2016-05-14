@@ -1,6 +1,7 @@
 <html>
 
 <head>
+  <script>document.write('<base href="' + document.location + '" />');</script>
     <title>Angular Attack App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,9 +51,9 @@
               username = authData.github.username;
               sessionStorage.setItem('username',username);
               //set session security key
-              var key=Math.random()*Math.random()*1000;
-              key=Math.floor(key);
-              sessionStorage.setItem('key',key);
+              // var key=Math.random()*Math.random()*1000;
+              // key=Math.floor(key);
+              // sessionStorage.setItem('key',key);
               //check in
               sessionStorage.setItem('login','true');
               window.location.reload();

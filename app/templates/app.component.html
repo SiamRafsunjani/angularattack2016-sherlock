@@ -1,17 +1,22 @@
-<div class="mdl-layout mdl-js-layout">
+<div class="mdl-layout mdl-js-layout" *ngIf="!isDashboard">
     <div style="text-align: -webkit-center;">
         <h1>{{appTitle}}</h1>
+        <h3 *ngIf="isSessionSet">Welcome to <span style="color: rgba(156, 39, 176, 0.81)">Github Bucket</span><br> Explore and have fun !!</h3>
+        <p>
+            Github Bucket brings all the stuffs you love about <a href="https://github.com/">Github</a> in one <em>Bucket</em>
+        </p>
         <!-- Accent-colored raised button with ripple -->
         <div *ngIf="isSessionSet">
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+            <a (click)="goToDashboard()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
             {{ButtonText}}
-          </button>
+          </a>
         </div>
         <div *ngIf="!isSessionSet">
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="connectWithGithub()">
-            {{ButtonText}}
-        </button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="connectWithGithub()">
+                {{ButtonText}}
+            </button>
         </div>
-
-           </div>
+    </div>
 </div>
+
+<router-outlet></router-outlet>

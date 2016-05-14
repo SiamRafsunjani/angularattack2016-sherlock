@@ -9,9 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var home_component_1 = require('./home/home.component');
 var AppComponent = (function () {
-    function AppComponent() {
-        this.appTitle = "App Title";
+    function AppComponent(_router) {
+        this._router = _router;
+        this.appTitle = "Github Bucket";
     }
     AppComponent.prototype.ngAfterViewInit = function () {
         componentHandler.upgradeDom();
@@ -19,6 +22,7 @@ var AppComponent = (function () {
     AppComponent.prototype.ngOnInit = function () {
         if (sessionStorage.getItem('login') == 'true') {
             this.isSessionSet = true;
+            this.appTitle = "Hello, " + sessionStorage.getItem('username') + "";
             this.ButtonText = "Go To My Dashboard";
         }
         else {
@@ -26,13 +30,23 @@ var AppComponent = (function () {
             this.ButtonText = "Connect With GitHub";
         }
     };
+    //triggerd after user clicks button
+    AppComponent.prototype.goToDashboard = function () {
+        this.isDashboard = true;
+        this._router.navigate(['Home']);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/templates/app.component.html',
             encapsulation: core_1.ViewEncapsulation.None,
-        }), 
-        __metadata('design:paramtypes', [])
+            directives: [home_component_1.HomeComponent, router_deprecated_1.ROUTER_DIRECTIVES],
+            providers: []
+        }),
+        router_deprecated_1.RouteConfig([
+            { path: '/home', name: 'Home', component: home_component_1.HomeComponent }
+        ]), 
+        __metadata('design:paramtypes', [router_deprecated_1.Router])
     ], AppComponent);
     return AppComponent;
 }());
