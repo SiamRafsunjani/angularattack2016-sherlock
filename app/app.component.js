@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var home_component_1 = require('./home/home.component');
+var dashboard_component_1 = require('./home/dashboard.component');
 var AppComponent = (function () {
     function AppComponent(_router) {
         this._router = _router;
@@ -33,18 +33,18 @@ var AppComponent = (function () {
     //triggerd after user clicks button
     AppComponent.prototype.goToDashboard = function () {
         this.isDashboard = true;
-        this._router.navigate(['Home']);
+        this._router.navigate(['Dashboard']);
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/templates/app.component.html',
             encapsulation: core_1.ViewEncapsulation.None,
-            directives: [home_component_1.HomeComponent, router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [dashboard_component_1.DashboardComponent, router_deprecated_1.ROUTER_DIRECTIVES],
             providers: []
         }),
         router_deprecated_1.RouteConfig([
-            { path: '/home', name: 'Home', component: home_component_1.HomeComponent }
+            { path: '/dashboard/...', name: 'Dashboard', component: dashboard_component_1.DashboardComponent }
         ]), 
         __metadata('design:paramtypes', [router_deprecated_1.Router])
     ], AppComponent);

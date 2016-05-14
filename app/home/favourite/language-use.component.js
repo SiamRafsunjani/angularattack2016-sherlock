@@ -9,26 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var MenubarComponent = (function () {
-    function MenubarComponent() {
+var LanguageUseComponent = (function () {
+    function LanguageUseComponent() {
     }
-    MenubarComponent.prototype.ngAfterViewInit = function () {
-        componentHandler.upgradeDom();
-    };
-    //logout user
-    MenubarComponent.prototype.logout = function () {
-        sessionStorage.setItem('username', '');
-        sessionStorage.setItem('login', 'false');
-        window.location.assign("/");
-    };
-    MenubarComponent = __decorate([
+    LanguageUseComponent = __decorate([
         core_1.Component({
-            selector: 'menu-bar',
-            templateUrl: 'app/templates/menubar.component.html'
+            selector: 'language-use',
+            template: "<h1 *ngIf=\"data\">\n                {{data}}\n            </h1>"
         }), 
         __metadata('design:paramtypes', [])
-    ], MenubarComponent);
-    return MenubarComponent;
+    ], LanguageUseComponent);
+    return LanguageUseComponent;
 }());
-exports.MenubarComponent = MenubarComponent;
-//# sourceMappingURL=menubar.component.js.map
+exports.LanguageUseComponent = LanguageUseComponent;
+//# sourceMappingURL=language-use.component.js.map

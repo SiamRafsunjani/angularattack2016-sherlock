@@ -9,21 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var menubar_component_1 = require('../menubar/menubar.component');
-var HomeComponent = (function () {
-    function HomeComponent() {
+var NewsFeedComponent = (function () {
+    function NewsFeedComponent() {
     }
-    HomeComponent.prototype.ngOnInit = function () {
-    };
-    HomeComponent = __decorate([
+    NewsFeedComponent = __decorate([
         core_1.Component({
-            selector: 'user-home',
-            template: "<menu-bar></menu-bar>",
-            directives: [menubar_component_1.MenubarComponent]
+            selector: 'news-feed',
+            templateUrl: 'app/templates/news-feed.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], HomeComponent);
-    return HomeComponent;
+    ], NewsFeedComponent);
+    return NewsFeedComponent;
 }());
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+exports.NewsFeedComponent = NewsFeedComponent;
+//# sourceMappingURL=news-feed.component.js.map

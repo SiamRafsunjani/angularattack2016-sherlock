@@ -1,19 +1,20 @@
 import {Component,ViewEncapsulation,OnInit} from '@angular/core';
 import {RouteConfig,ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
-import {HomeComponent} from './home/home.component';
+import {DashboardComponent} from './home/dashboard.component';
+
 declare var componentHandler:any;
 
 @Component({
   selector:'my-app',
   templateUrl:'app/templates/app.component.html',
   encapsulation: ViewEncapsulation.None,
-  directives:[HomeComponent,ROUTER_DIRECTIVES],
+  directives:[DashboardComponent,ROUTER_DIRECTIVES],
   providers:[]
 })
 @RouteConfig([
-  {path:'/home',name:'Home',component:HomeComponent}
+  {path:'/dashboard/...',name:'Dashboard',component:DashboardComponent}
 ])
-export class AppComponent{
+export class AppComponent implements OnInit{
 
   constructor(private _router:Router){}
 
@@ -41,6 +42,6 @@ export class AppComponent{
   //triggerd after user clicks button
   goToDashboard(){
       this.isDashboard=true;
-      this._router.navigate(['Home']);
+      this._router.navigate(['Dashboard']);
   }
 }

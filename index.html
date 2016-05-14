@@ -33,13 +33,13 @@
 </head>
 
 <!-- 3. Display the application -->
-
-<body>
+<body id="appBody">
     <my-app>Loading...</my-app>
 </body>
 
   <script type="text/javascript">
 
+  // execute when "Connect With GitHub" pressed
   function connectWithGithub() {
       var ref = new Firebase("https://ng-github.firebaseio.com");
       ref.authWithOAuthPopup("github", function(error, authData) {
@@ -62,7 +62,4 @@
   }
 
   </script>
-
-<!--execute when "Connect With GitHub" pressed  -->
-
 </html>
