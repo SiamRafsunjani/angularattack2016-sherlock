@@ -18,3 +18,11 @@
 ##Additional
 
   - Make a user profile with additional user info
+
+##IMPORTANT
+
+  - Make a branch of your own (separate from Master branch)
+  - **KEEP THE MASTER BRANCH UNTOUCHED**
+  - Do not merge with the Master branch (for now at least)
+  - Clone the repo locally
+  - Push changes at **your own branch**
