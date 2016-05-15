@@ -1,0 +1,40 @@
+<h3 style="text-align:center">Trending</h3>
+
+<h5 style="text-align:center">Top Trending repositories on the basis of your <strong>most favourite language</strong></h5>
+
+<!--  test-->
+<!-- <p *ngIf="newsFeed">
+  <small *ngFor="let item of newsFeed">
+    <li>{{item.name}}</li>
+    <li>{{item.language}}</li>
+  </small>
+</p> -->
+<div *ngIf="trending">
+
+  <div class="demo-card-square mdl-card mdl-shadow--4dp" style="position: relative;
+    width: 50%;
+    margin-left: 25%;margin-bottom: 3%;" *ngFor="let trend of trending">
+    <div class="mdl-card__title mdl-card--expand" >
+      <h2 class="mdl-card__title-text">{{trend.name}}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+    {{trend.description}}
+    </div>
+    <br>
+    <div class="mdl-card--border">
+      <i class="material-icons">device_hub</i> <span>{{trend.forks}}</span>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <strong>
+      {{trend.language}}</strong>
+      <!-- <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        View Updates
+      </a> -->
+      <!-- Accent-colored raised button with ripple -->
+  <button  class="mdl-button mdl-js-button mdl-js-ripple-effect" (click)="goToGithub(trend.html_url)">
+  <small>View On Github</small>
+</button>
+    </div>
+  </div>
+  <br><br>
+</div>
