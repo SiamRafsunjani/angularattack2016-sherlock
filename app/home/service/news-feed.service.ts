@@ -59,7 +59,7 @@ export class NewsFeedService {
 
         //get user's most used languages
         for(var key in UserLanguages ){
-			       languages += "language:" + UserLanguages[key] + "+";
+			       languages += "language=" + UserLanguages[key] + "+";
 		         }
 
         var link="https://api.github.com/search/repositories?q=created:>"+pastDate+"+"+languages+"&sort=star&order=desc";

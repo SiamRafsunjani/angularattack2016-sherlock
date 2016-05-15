@@ -7,3 +7,5 @@
 !node_modules/@angular/compiler/compiler.umd.js
 !node_modules/@angular/platform-browser/platform-browser.umd.js
 !node_modules/@angular/platform-browser-dynamic/platform-browser-dynamic.umd.js
+!node_modules/systemjs/dist/system.src.js
+!node_modules/rx

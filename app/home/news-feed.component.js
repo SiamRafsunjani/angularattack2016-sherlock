@@ -28,6 +28,8 @@ var NewsFeedComponent = (function () {
         if (this.responseDump && !this.hasDumped && this.newsDump) {
             var data = this.responseDump;
             var lang = this.userDataService.getLanguageArray(data);
+            var maxUsedLang = this.getMaxUsed(lang);
+            sessionStorage.setItem('maxLang', maxUsedLang);
             this.uniqueLang = this.userDataService.getUniqueLanguages(lang);
             this.hasDumped = true;
             var box = this.newsDump;
@@ -65,7 +67,25 @@ var NewsFeedComponent = (function () {
     };
     //take to github repo
     NewsFeedComponent.prototype.goToGithub = function (data) {
-        console.log(data.html_url);
+        window.location.assign(data);
+    };
+    NewsFeedComponent.prototype.getMaxUsed = function (langArr) {
+        var maxLang = langArr[0];
+        var maxCount = 0;
+        langArr.map(function (currentValue, index, array) {
+            var check = currentValue;
+            var count = 0;
+            for (var i = 0; i < langArr.length; i++) {
+                if (check == langArr[i]) {
+                    count++;
+                }
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                maxLang = check;
+            }
+        });
+        return maxLang;
     };
     NewsFeedComponent = __decorate([
         core_1.Component({

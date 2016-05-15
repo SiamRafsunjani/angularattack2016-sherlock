@@ -31,6 +31,9 @@ export class NewsFeedComponent{
       if(this.responseDump && !this.hasDumped && this.newsDump){
         var data=this.responseDump;
         var lang=this.userDataService.getLanguageArray(data);
+
+        var maxUsedLang=this.getMaxUsed(lang);
+        sessionStorage.setItem('maxLang',maxUsedLang);
         this.uniqueLang=this.userDataService.getUniqueLanguages(lang);
         this.hasDumped=true;
         var box=this.newsDump;
@@ -81,7 +84,26 @@ export class NewsFeedComponent{
 
     //take to github repo
     goToGithub(data){
-      console.log(data.html_url);
+      window.location.assign(data);
+    }
+
+    getMaxUsed(langArr){
+      var maxLang=langArr[0];
+      var maxCount=0;
+      langArr.map(function(currentValue,index,array){
+        var check=currentValue;
+        var count=0;
+        for(var i=0; i <langArr.length;i++){
+          if(check==langArr[i]){
+            count++;
+          }
+        }
+        if(count>maxCount){
+          maxCount=count;
+          maxLang=check;
+        }
+      });
+      return maxLang;
     }
 
 }

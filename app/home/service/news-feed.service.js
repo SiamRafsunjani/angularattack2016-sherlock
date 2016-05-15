@@ -52,7 +52,7 @@ var NewsFeedService = (function () {
         }
         //get user's most used languages
         for (var key in UserLanguages) {
-            languages += "language:" + UserLanguages[key] + "+";
+            languages += "language=" + UserLanguages[key] + "+";
         }
         var link = "https://api.github.com/search/repositories?q=created:>" + pastDate + "+" + languages + "&sort=star&order=desc";
         return this.http.get(link)

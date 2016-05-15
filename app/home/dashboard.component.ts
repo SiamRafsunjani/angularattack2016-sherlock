@@ -3,6 +3,7 @@ import {RouteConfig,ROUTER_DIRECTIVES,Router,RouterOutlet} from '@angular/router
 import {NewsFeedComponent} from './news-feed.component';
 import {FavouriteComponent} from './favourite.component';
 import {TopTrendingComponent} from './top-trending.component';
+import {LatestComponent} from './latest.component';
 
 declare var componentHandler:any;
 
@@ -16,6 +17,7 @@ declare var componentHandler:any;
   {path:'/',name:'NewsFeed',component:NewsFeedComponent,useAsDefault:true},
   {path:'/favourite',name:'Favourite',component:FavouriteComponent},
   {path:'/top-trending',name:'TopTrending',component:TopTrendingComponent},
+  {path:'/latest-weekly',name:'Latest',component:LatestComponent}
 
 ])
 export class DashboardComponent{
@@ -31,8 +33,11 @@ export class DashboardComponent{
     this._router.navigate(['NewsFeed']);
   }
   goToTrending(){
-    console.log("Trend");
     this._router.navigate(['TopTrending']);
+  }
+
+  goToLatest(){
+    this._router.navigate(['Latest']);
   }
   //logout user
   logout(){

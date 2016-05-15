@@ -34,7 +34,7 @@
 
 <!-- 3. Display the application -->
 <body id="appBody">
-    <my-app>Loading...</my-app>
+    <my-app>Please wait while we fill your Github Bucket with the latest bits...</my-app>
 </body>
 
   <script type="text/javascript">
@@ -50,11 +50,6 @@
               //set session username
               username = authData.github.username;
               sessionStorage.setItem('username',username);
-              //set session security key
-              // var key=Math.random()*Math.random()*1000;
-              // key=Math.floor(key);
-              // sessionStorage.setItem('key',key);
-              //check in
               sessionStorage.setItem('login','true');
               window.location.reload();
           }

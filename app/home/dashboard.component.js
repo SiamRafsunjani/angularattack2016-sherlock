@@ -13,6 +13,7 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var news_feed_component_1 = require('./news-feed.component');
 var favourite_component_1 = require('./favourite.component');
 var top_trending_component_1 = require('./top-trending.component');
+var latest_component_1 = require('./latest.component');
 var DashboardComponent = (function () {
     function DashboardComponent(_router) {
         this._router = _router;
@@ -27,8 +28,10 @@ var DashboardComponent = (function () {
         this._router.navigate(['NewsFeed']);
     };
     DashboardComponent.prototype.goToTrending = function () {
-        console.log("Trend");
         this._router.navigate(['TopTrending']);
+    };
+    DashboardComponent.prototype.goToLatest = function () {
+        this._router.navigate(['Latest']);
     };
     //logout user
     DashboardComponent.prototype.logout = function () {
@@ -47,6 +50,7 @@ var DashboardComponent = (function () {
             { path: '/', name: 'NewsFeed', component: news_feed_component_1.NewsFeedComponent, useAsDefault: true },
             { path: '/favourite', name: 'Favourite', component: favourite_component_1.FavouriteComponent },
             { path: '/top-trending', name: 'TopTrending', component: top_trending_component_1.TopTrendingComponent },
+            { path: '/latest-weekly', name: 'Latest', component: latest_component_1.LatestComponent }
         ]), 
         __metadata('design:paramtypes', [router_deprecated_1.Router])
     ], DashboardComponent);
