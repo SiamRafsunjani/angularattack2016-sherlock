@@ -5,8 +5,6 @@
 
 ## Preview
 
-![](https://raw.githubusercontent.com/rumblex/angularattack2016-sherlock/master/demo.PNG?token=ALOLTg8-124ODhtQSiBUb0DgF8iTV5m7ks5XQkEPwA%3D%3D)
-
 ![](https://raw.githubusercontent.com/rumblex/angularattack2016-sherlock/master/demo2.PNG?token=ALOLTpVFlgxXb3J7MA8DgxwTjY8u7VAuks5XQkE6wA%3D%3D)
 
 ## How it works:
