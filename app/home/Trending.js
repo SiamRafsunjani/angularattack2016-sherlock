@@ -5,4 +5,4 @@ var Trending = (function () {
     return Trending;
 }());
 exports.Trending = Trending;
-//# sourceMappingURL=Trending.js.map
+//# sourceMappingURL=trending.js.map

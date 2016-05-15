@@ -14,7 +14,7 @@
   <div class="demo-card-square mdl-card mdl-shadow--4dp" style="position: relative;
     width: 50%;
     margin-left: 25%;margin-bottom: 3%;" *ngFor="let trend of trending">
-    <div class="mdl-card__title mdl-card--expand" >
+    <div class="mdl-card__title mdl-card--expand" style="background-color: #8BC34A;" >
       <h2 class="mdl-card__title-text">{{trend.name}}</h2>
     </div>
     <div class="mdl-card__supporting-text">
@@ -22,7 +22,7 @@
     </div>
     <br>
     <div class="mdl-card--border">
-      <i class="material-icons">device_hub</i> <span>{{trend.forks}}</span>
+      <i class="material-icons">device_hub</i> <span>{{trend.fork}}</span>
     </div>
     <div class="mdl-card__actions mdl-card--border">
       <strong>
