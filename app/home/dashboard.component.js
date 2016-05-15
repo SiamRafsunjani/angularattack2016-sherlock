@@ -14,6 +14,7 @@ var news_feed_component_1 = require('./news-feed.component');
 var favourite_component_1 = require('./favourite.component');
 var top_trending_component_1 = require('./top-trending.component');
 var latest_component_1 = require('./latest.component');
+var credit_component_1 = require('./credit.component');
 var DashboardComponent = (function () {
     function DashboardComponent(_router) {
         this._router = _router;
@@ -39,18 +40,22 @@ var DashboardComponent = (function () {
         sessionStorage.setItem('login', 'false');
         window.location.assign("/");
     };
+    DashboardComponent.prototype.goToCredits = function () {
+        this._router.navigate(['Credit']);
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'menu-bar',
             templateUrl: 'app/templates/dashboard.component.html',
             encapsulation: core_1.ViewEncapsulation.None,
-            directives: [router_deprecated_1.RouterOutlet, favourite_component_1.FavouriteComponent, news_feed_component_1.NewsFeedComponent, top_trending_component_1.TopTrendingComponent]
+            directives: [router_deprecated_1.RouterOutlet, favourite_component_1.FavouriteComponent, news_feed_component_1.NewsFeedComponent, top_trending_component_1.TopTrendingComponent, credit_component_1.CreditComponent]
         }),
         router_deprecated_1.RouteConfig([
             { path: '/', name: 'NewsFeed', component: news_feed_component_1.NewsFeedComponent, useAsDefault: true },
             { path: '/favourite', name: 'Favourite', component: favourite_component_1.FavouriteComponent },
             { path: '/top-trending', name: 'TopTrending', component: top_trending_component_1.TopTrendingComponent },
-            { path: '/latest-weekly', name: 'Latest', component: latest_component_1.LatestComponent }
+            { path: '/latest-weekly', name: 'Latest', component: latest_component_1.LatestComponent },
+            { path: '/credits', name: 'Credit', component: credit_component_1.CreditComponent }
         ]), 
         __metadata('design:paramtypes', [router_deprecated_1.Router])
     ], DashboardComponent);

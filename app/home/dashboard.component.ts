@@ -4,6 +4,8 @@ import {NewsFeedComponent} from './news-feed.component';
 import {FavouriteComponent} from './favourite.component';
 import {TopTrendingComponent} from './top-trending.component';
 import {LatestComponent} from './latest.component';
+import {CreditComponent} from './credit.component';
+
 
 declare var componentHandler:any;
 
@@ -11,13 +13,14 @@ declare var componentHandler:any;
     selector:'menu-bar',
     templateUrl:'app/templates/dashboard.component.html',
     encapsulation: ViewEncapsulation.None,
-    directives:[RouterOutlet,FavouriteComponent,NewsFeedComponent,TopTrendingComponent]
+    directives:[RouterOutlet,FavouriteComponent,NewsFeedComponent,TopTrendingComponent,CreditComponent]
 })
 @RouteConfig([
   {path:'/',name:'NewsFeed',component:NewsFeedComponent,useAsDefault:true},
   {path:'/favourite',name:'Favourite',component:FavouriteComponent},
   {path:'/top-trending',name:'TopTrending',component:TopTrendingComponent},
-  {path:'/latest-weekly',name:'Latest',component:LatestComponent}
+  {path:'/latest-weekly',name:'Latest',component:LatestComponent},
+  {path:'/credits',name:'Credit',component:CreditComponent}
 
 ])
 export class DashboardComponent{
@@ -44,5 +47,8 @@ export class DashboardComponent{
     sessionStorage.setItem('username','');
     sessionStorage.setItem('login','false');
     window.location.assign("/");
+  }
+  goToCredits(){
+      this._router.navigate(['Credit']);
   }
 }
