@@ -20,8 +20,16 @@ var FavouriteService = (function () {
         var link = "https://api.github.com/users/" + this.username + "/repos"; //github api
         this.apiUrl = link;
     }
+    //get user info
     FavouriteService.prototype.getData = function () {
         return this.http.get(this.apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    //get recently updated repo
+    FavouriteService.prototype.getRecentUpdated = function () {
+        var link = "https://api.github.com/search/repositories?q=user:" + this.username + "&sort=updated";
+        return this.http.get(link)
             .map(this.extractData)
             .catch(this.handleError);
     };

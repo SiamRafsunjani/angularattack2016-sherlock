@@ -16,11 +16,20 @@ export class FavouriteService {
         this.apiUrl = link;
     }
 
+    //get user info
     getData(): Observable<any[]> {
         return this.http.get(this.apiUrl)
             .map(this.extractData)
             .catch(this.handleError);
     }
+
+    //get recently updated repo
+      getRecentUpdated():Observable<any[]>{
+          var link="https://api.github.com/search/repositories?q=user:"+this.username+"&sort=updated";
+          return this.http.get(link)
+                          .map(this.extractData)
+                          .catch(this.handleError);
+        }
 
     extractData(res: Response) {
         if (res.status < 200 || res.status >= 300) {

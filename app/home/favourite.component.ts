@@ -1,6 +1,7 @@
 import {Component,OnInit,DoCheck} from '@angular/core';
 import {FavouriteService} from './service/favourite.service';
 import {UserDataService} from './service/user-data.service';
+// import {ROUTER_DIRECTIVES,RouteConfig,Router} from '@angular/router-deprecated';
 
 @Component({
   selector:'user-favourite',
@@ -18,22 +19,43 @@ export class FavouriteComponent implements OnInit,DoCheck{
   uniqueLanguage:any=[];
   nameArray:any=[];
   numArray:any=[];
+  maxLang:any=[];
+  maxUse:any=[];
+  recent:any;
+  recentName:string;
+  recentUrl:string;
+  recentLang:string;
 
   constructor(private favouriteService:FavouriteService,private userDataService:UserDataService){}
 
   ngOnInit(){
       this.getFavouriteData();
+      this.getRecentData();
   }
   ngDoCheck(){
-    if(this.response && !this.hasReceivedData){
+    if(this.response && !this.hasReceivedData && this.recent){
       var data=this.response;
       this.languageArray=this.userDataService.getLanguageArray(data);
       this.uniqueLanguage=this.userDataService.getUniqueLanguages(this.languageArray).reverse();
       // this.language_use=this.getLanguageUse(this.languageArray,this.uniqueLanguage);
       this.nameArray=this.getLanguageUse(this.languageArray,this.uniqueLanguage);
       this.numArray=this.getLanguageNumber(this.languageArray,this.uniqueLanguage);
+      this.unWrap(this.userDataService.getMax(this.languageArray));
+      this.getRecentlyUpdated(this.recent);
       this.hasReceivedData=true;
     }
+  }
+
+
+  //unwrap the language:used max array2
+  unWrap(data:any){
+    //get key
+    for(var key in data){
+    this.maxLang.push(key);
+    this.maxUse.push(data[key]);
+    }
+
+
   }
 
   getFavouriteData(){
@@ -41,7 +63,7 @@ export class FavouriteComponent implements OnInit,DoCheck{
                           .subscribe(
                             response=>this.response=response,
                             error => this.errorMessage = <any>error
-                          )
+                          );
   }
 
 //get the name of language
@@ -84,5 +106,29 @@ export class FavouriteComponent implements OnInit,DoCheck{
     });
     return numArr;
   }
+
+//get recently updated data
+  getRecentData(){
+    return this.favouriteService.getRecentUpdated()
+                          .subscribe(
+                            recent=>this.recent=recent,
+                            error => this.errorMessage = <any>error
+                          );
+  }
+
+  //unwrap the json data
+  getRecentlyUpdated(data){
+    var newData=data.items;
+    newData=newData[0];
+    this.recentName=newData.name;
+    this.recentUrl=newData.html_url;
+    this.recentLang=newData.language;
+  }
+
+  //navigate
+  getRecentUrl(){
+   window.location.assign(this.recentUrl);
+  }
+
 
 }
