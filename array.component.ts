@@ -20,19 +20,24 @@ export class AppComponent {
 	
 	arr = ['html', 'html', 'javascript', 'c', 'c++', 'java', 'c','html', 'html', 'javascript', 'c', 'c++', 'java', 'c','lua','perl','perl','objective c'];
 	response = [];
+	language = [];
+	name = [];
+	html_url = [];
+	description = [];
 
-	// calles the http service and retrieves data 
+
+
+	// calles the http service and retrieves dat 
 
 	onGet() {
 		this._httpService.getPost()
 			.subscribe(
-				response => this.response = response,
+			response => (this.language = response[0], this.name = response[1], this.html_url = response[2],this.description = response[3]),
 				error => console.log(error)
 			)
-
 	}
 
-	// calles the count function from the array service and retrieves how many times 
+	// calles the count function from the array service and retrieves how many times
 	//   any language was used
 
 	onAssosiative(arr){

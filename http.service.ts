@@ -62,15 +62,25 @@ export class HttpService {
 			.map(response => {
 				var FetchedData = [];
 				var data = response["items"];
+				var language = [];
+				var name = [];
+				var html_url = [];
+				var description = [];
+
 				for (var key in data) {
-					FetchedData[key] = {
+					language[key] = data[key]["language"]
+					name[key] = data[key]["name"]
+					html_url[key] = data[key]["html_url"]
+					description[key] = data[key]["description"]
+
+					/*FetchedData[key] = {
 						language: data[key]["language"],
 						name: data[key]["name"],
 						html_url: data[key]["html_url"],
 						description: data[key]["description"],
-					}
+					}*/
 				}
-				return FetchedData;
+				return [language,name,html_url,description];
 			});
 	}
 }
