@@ -9,17 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var LanguageUseComponent = (function () {
-    function LanguageUseComponent() {
+var top_trending_service_1 = require('./service/top-trending.service');
+var TopTrendingComponent = (function () {
+    function TopTrendingComponent(topTrendingService) {
+        this.topTrendingService = topTrendingService;
     }
-    LanguageUseComponent = __decorate([
+    TopTrendingComponent = __decorate([
         core_1.Component({
-            selector: 'language-use',
-            template: "<h1 *ngIf=\"data\">\n                {{data}}\n            </h1>"
+            selector: '<top-trending>',
+            template: "<h1>Top Trending</h1>",
+            providers: [top_trending_service_1.TopTrendingService]
         }), 
-        __metadata('design:paramtypes', [])
-    ], LanguageUseComponent);
-    return LanguageUseComponent;
+        __metadata('design:paramtypes', [top_trending_service_1.TopTrendingService])
+    ], TopTrendingComponent);
+    return TopTrendingComponent;
 }());
-exports.LanguageUseComponent = LanguageUseComponent;
-//# sourceMappingURL=language-use.component.js.map
+exports.TopTrendingComponent = TopTrendingComponent;
+//# sourceMappingURL=top-trending.component.js.map

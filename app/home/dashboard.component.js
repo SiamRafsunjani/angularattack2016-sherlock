@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var news_feed_component_1 = require('./news-feed.component');
 var favourite_component_1 = require('./favourite.component');
+var top_trending_component_1 = require('./top-trending.component');
 var DashboardComponent = (function () {
     function DashboardComponent(_router) {
         this._router = _router;
@@ -20,11 +21,14 @@ var DashboardComponent = (function () {
         componentHandler.upgradeDom();
     };
     DashboardComponent.prototype.goToFavourite = function () {
-        // console.log("Fav");
         this._router.navigate(['Favourite']);
     };
     DashboardComponent.prototype.goToNewsFeed = function () {
         this._router.navigate(['NewsFeed']);
+    };
+    DashboardComponent.prototype.goToTrending = function () {
+        console.log("Trend");
+        this._router.navigate(['TopTrending']);
     };
     //logout user
     DashboardComponent.prototype.logout = function () {
@@ -37,11 +41,12 @@ var DashboardComponent = (function () {
             selector: 'menu-bar',
             templateUrl: 'app/templates/dashboard.component.html',
             encapsulation: core_1.ViewEncapsulation.None,
-            directives: [router_deprecated_1.RouterOutlet, favourite_component_1.FavouriteComponent, news_feed_component_1.NewsFeedComponent]
+            directives: [router_deprecated_1.RouterOutlet, favourite_component_1.FavouriteComponent, news_feed_component_1.NewsFeedComponent, top_trending_component_1.TopTrendingComponent]
         }),
         router_deprecated_1.RouteConfig([
             { path: '/', name: 'NewsFeed', component: news_feed_component_1.NewsFeedComponent, useAsDefault: true },
-            { path: '/favourite', name: 'Favourite', component: favourite_component_1.FavouriteComponent }
+            { path: '/favourite', name: 'Favourite', component: favourite_component_1.FavouriteComponent },
+            { path: '/top-trending', name: 'TopTrending', component: top_trending_component_1.TopTrendingComponent },
         ]), 
         __metadata('design:paramtypes', [router_deprecated_1.Router])
     ], DashboardComponent);

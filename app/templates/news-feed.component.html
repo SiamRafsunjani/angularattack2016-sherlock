@@ -1,54 +1,40 @@
 <h3 style="text-align:center">News Feed</h3>
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--4-col">
-    <!-- news from Github API -->
-  <div class="demo-card-square mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title mdl-card--expand">
-      <h2 class="mdl-card__title-text">101</h2>
+
+<!--  test-->
+<!-- <p *ngIf="newsFeed">
+  <small *ngFor="let item of newsFeed">
+    <li>{{item.name}}</li>
+    <li>{{item.language}}</li>
+  </small>
+</p> -->
+<div *ngIf="newsFeed">
+
+  <div class="demo-card-square mdl-card mdl-shadow--4dp" style="position: relative;
+    width: 50%;
+    margin-left: 25%;margin-bottom: 3%;" *ngFor="let news of newsFeed">
+    <div class="mdl-card__title mdl-card--expand" >
+      <h2 class="mdl-card__title-text">{{news.name}}</h2>
     </div>
     <div class="mdl-card__supporting-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Aenan convallis.
+    {{news.description}}
+    </div>
+    <br>
+    <div class="mdl-card--border">
+      <i class="material-icons">star</i><span id="star">{{news.stars}}</span>
+      <i class="material-icons">device_hub</i> <span>{{news.forks}}</span>
     </div>
     <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        View On Github
-      </a>
+      <strong>
+      {{news.language}}</strong>
+      <!-- <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        View Updates
+      </a> -->
+      <!-- Accent-colored raised button with ripple -->
+  <a herf="news.html_url" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+  <small>View On Github</small>
+</a>
     </div>
+
   </div>
-</div>
-
-<div class="mdl-cell mdl-cell--4-col">
-      <div class="demo-card-square mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title mdl-card--expand">
-          <h2 class="mdl-card__title-text">102</h2>
-        </div>
-        <div class="mdl-card__supporting-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenan convallis.
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            View On Github
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="mdl-cell mdl-cell--4-col">
-          <div class="demo-card-square mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title mdl-card--expand">
-              <h2 class="mdl-card__title-text">103</h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Aenan convallis.
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                View On Github
-              </a>
-            </div>
-          </div>
-        </div>
-
+  <br><br>
 </div>
