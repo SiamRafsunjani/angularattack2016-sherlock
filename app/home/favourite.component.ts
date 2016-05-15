@@ -1,7 +1,6 @@
 import {Component,OnInit,DoCheck} from '@angular/core';
 import {FavouriteService} from './service/favourite.service';
 import {UserDataService} from './service/user-data.service';
-// import {Language} from './language';
 
 @Component({
   selector:'user-favourite',
@@ -17,7 +16,8 @@ export class FavouriteComponent implements OnInit,DoCheck{
   data:any;
   languageArray:any=[];
   uniqueLanguage:any=[];
-  language_use:any=[];
+  nameArray:any=[];
+  numArray:any=[];
 
   constructor(private favouriteService:FavouriteService,private userDataService:UserDataService){}
 
@@ -30,12 +30,9 @@ export class FavouriteComponent implements OnInit,DoCheck{
       this.languageArray=this.userDataService.getLanguageArray(data);
       this.uniqueLanguage=this.userDataService.getUniqueLanguages(this.languageArray).reverse();
       // this.language_use=this.getLanguageUse(this.languageArray,this.uniqueLanguage);
-      this.getLanguageUse(this.languageArray,this.uniqueLanguage);
+      this.nameArray=this.getLanguageUse(this.languageArray,this.uniqueLanguage);
+      this.numArray=this.getLanguageNumber(this.languageArray,this.uniqueLanguage);
       this.hasReceivedData=true;
-
-      console.log(this.languageArray);
-      console.log(this.uniqueLanguage);
-      console.log(this.language_use);
     }
   }
 
@@ -47,7 +44,10 @@ export class FavouriteComponent implements OnInit,DoCheck{
                           )
   }
 
+//get the name of language
   getLanguageUse(langArr,unique){
+    var nameArr=[];
+
     unique.map(function(currentValue,index,array){
       var check=currentValue;
       var counter=0;
@@ -56,9 +56,33 @@ export class FavouriteComponent implements OnInit,DoCheck{
           counter++;
         }
       }
-      this.language_use.push({name:check,use:counter});
+
+      if(check!=null){
+        nameArr.push(check);
+      }
+
     });
-    // console.log(this.language_use);
+    return nameArr;
+  }
+
+//get the number of repo in particular lang
+  getLanguageNumber(langArr,unique){
+    var numArr=[];
+
+    unique.map(function(currentValue,index,array){
+      var check=currentValue;
+      var counter=0;
+      for(var i=0;i < langArr.length;i++){
+        if(check==langArr[i]){
+          counter++;
+        }
+      }
+      if(check!=null){
+        numArr.push(counter);
+      }
+
+    });
+    return numArr;
   }
 
 }

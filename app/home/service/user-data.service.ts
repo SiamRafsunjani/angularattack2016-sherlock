@@ -28,23 +28,4 @@ export class UserDataService{
     return a;
   }
 
-  //get [{language:number_of_use}]
-  /*
-  getLanguageUse(langArr,unique):Language[]{
-    var newArr:Language[];
-
-    unique.map(function(currentValue,index,array){
-      var check=currentValue;
-      var counter=0;
-      for(var i=0;i < langArr.length;i++){
-        if(check==langArr[i]){
-          counter++;
-        }
-      }
-      newArr.push({name:check,use:counter});
-    });
-    console.log(newArr);
-    return newArr;
-  }
-  */
 }

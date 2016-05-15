@@ -1,14 +1,19 @@
-
 <!-- <h3 style="text-align:center">My Favourites<h3> -->
 <div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--6-col">
-    <h4>Favourite Languages</h4>
-    <div *ngFor="let info of uniqueLanguage" *ngIf="langaugeArray">
-        {{info}}
+    <div class="mdl-cell mdl-cell--3-col">
+        <h4>Languages</h4>
+        <h6 *ngIf="languageArray" *ngFor="let info of nameArray">{{info}}</h6>
     </div>
+    <div class="mdl-cell mdl-cell--3-col">
+        <h4>Repo</h4>
+        <h6 *ngIf="languageArray" *ngFor="let info of numArray">
 
+        <!-- Colored FAB button with ripple -->
+        <!-- Flat button with ripple -->
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+              {{info}}
+          </button>
+
+      </h6>
     </div>
-    <div class="mdl-cell mdl-cell--6-col">
-
-  </div>
 </div>

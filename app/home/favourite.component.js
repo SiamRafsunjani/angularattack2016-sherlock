@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var favourite_service_1 = require('./service/favourite.service');
 var user_data_service_1 = require('./service/user-data.service');
-// import {Language} from './language';
 var FavouriteComponent = (function () {
     function FavouriteComponent(favouriteService, userDataService) {
         this.favouriteService = favouriteService;
@@ -19,7 +18,8 @@ var FavouriteComponent = (function () {
         this.hasReceivedData = false;
         this.languageArray = [];
         this.uniqueLanguage = [];
-        this.language_use = [];
+        this.nameArray = [];
+        this.numArray = [];
     }
     FavouriteComponent.prototype.ngOnInit = function () {
         this.getFavouriteData();
@@ -30,11 +30,9 @@ var FavouriteComponent = (function () {
             this.languageArray = this.userDataService.getLanguageArray(data);
             this.uniqueLanguage = this.userDataService.getUniqueLanguages(this.languageArray).reverse();
             // this.language_use=this.getLanguageUse(this.languageArray,this.uniqueLanguage);
-            this.getLanguageUse(this.languageArray, this.uniqueLanguage);
+            this.nameArray = this.getLanguageUse(this.languageArray, this.uniqueLanguage);
+            this.numArray = this.getLanguageNumber(this.languageArray, this.uniqueLanguage);
             this.hasReceivedData = true;
-            console.log(this.languageArray);
-            console.log(this.uniqueLanguage);
-            console.log(this.language_use);
         }
     };
     FavouriteComponent.prototype.getFavouriteData = function () {
@@ -42,7 +40,9 @@ var FavouriteComponent = (function () {
         return this.favouriteService.getData()
             .subscribe(function (response) { return _this.response = response; }, function (error) { return _this.errorMessage = error; });
     };
+    //get the name of language
     FavouriteComponent.prototype.getLanguageUse = function (langArr, unique) {
+        var nameArr = [];
         unique.map(function (currentValue, index, array) {
             var check = currentValue;
             var counter = 0;
@@ -51,9 +51,28 @@ var FavouriteComponent = (function () {
                     counter++;
                 }
             }
-            this.language_use.push({ name: check, use: counter });
+            if (check != null) {
+                nameArr.push(check);
+            }
         });
-        // console.log(this.language_use);
+        return nameArr;
+    };
+    //get the number of repo in particular lang
+    FavouriteComponent.prototype.getLanguageNumber = function (langArr, unique) {
+        var numArr = [];
+        unique.map(function (currentValue, index, array) {
+            var check = currentValue;
+            var counter = 0;
+            for (var i = 0; i < langArr.length; i++) {
+                if (check == langArr[i]) {
+                    counter++;
+                }
+            }
+            if (check != null) {
+                numArr.push(counter);
+            }
+        });
+        return numArr;
     };
     FavouriteComponent = __decorate([
         core_1.Component({
