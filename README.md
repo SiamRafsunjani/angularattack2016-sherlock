@@ -17,10 +17,11 @@
 ## Features
 
   - Daily NewsFeed 
-  - Most Favourite
+  - Favourite
   - Top Trending
-  - Most Starred
+  - Most Popular
   - Latest (weekly)
+  - Profile
 
 ## Technology Stack
 
