@@ -1,5 +1,5 @@
 
-# [Github Bucket](http://sherlock.2016.angularattack.io/)
+# [Github Bucket](https://github-bucket.firebaseapp.com/)
 
 *Github Bucket* is a web app that brings all stuffs you love about [Github](https://github.com/) in a bucket
 
@@ -9,10 +9,10 @@
 
 ## How it works:
 
-  - Connect with Github and [Get Started](http://sherlock.2016.angularattack.io/)
-  - [Github Bucket](http://sherlock.2016.angularattack.io/) fetches data using the [Github API](https://developer.github.com/v3/)
+  - Connect with Github and [Get Started](https://github-bucket.firebaseapp.com/)
+  - [Github Bucket](https://github-bucket.firebaseapp.com/) fetches data using the [Github API](https://developer.github.com/v3/)
   - You are served data in different flavours, all based on your Github profile.
-  - You are a daily dose of fresh newsfeed from Github
+  - You get a daily dose of fresh newsfeed from Github
 
 ## Features
 
