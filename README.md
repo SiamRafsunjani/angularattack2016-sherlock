@@ -16,7 +16,7 @@
 
 ## Features
 
-  - Daily NewsFeed 
+  - Daily NewsFeed
   - Most Favourite
   - Top Trending
   - Most Starred
@@ -29,6 +29,6 @@
   - [Material Lite](https://getmdl.io/started/)
   - [Material Icons](https://design.google.com/icons/)
   - [Firebase](https://www.firebase.com/)
+  - [Webpack](https://webpack.github.io/)
 
 > Developed by [Abrar](https://github.com/abrarShariar) and [Siam](https://github.com/SiamRafsunjani)
-  

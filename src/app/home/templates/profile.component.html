@@ -1,0 +1,60 @@
+<h3 style="text-align:center">{{username}}'s Bucket</h3>
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" style="position: relative;
+  width: 50%;
+  margin-left: 25%;margin-bottom: 3%;">
+  <div class="mdl-card__title" style="background:url('{{avatar_url}}') bottom right 15% no-repeat;background-size: contain;">
+    <h2 class="mdl-card__title-text">{{full_name}}</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <p>
+      <strong>Email: </strong> {{email}}
+    </p>
+
+    <p>
+      <strong>Github: </strong><a (click)="goToGithub(html_url)">{{html_url}}</a>
+    </p>
+    <p>
+      <strong>Web: </strong><a (click)="goToBlog(blog_url)">{{blog_url}}</a>
+    </p>
+    <p>
+      <strong>Type: </strong>{{type}}
+    </p>
+    <p>
+      <strong>Public Repo: </strong>{{public_repo}}
+    </p>
+    <p>
+      <strong>Public Gists: </strong>{{public_gists}}
+    </p>
+
+    <p>
+      <strong>Location: </strong>{{location}}
+    </p>
+    <p>
+      <strong>Followers: </strong>{{followers}}
+    </p>
+    <p>
+      <strong>Following: </strong>{{following}}
+    </p>
+
+
+
+    <p>
+      <strong>Hireable: </strong>
+      <i class="material-icons" *ngIf="hireable">check_circle</i>
+      <i class="material-icons" *ngIf="!hireable">highlight_off</i>
+    </p>
+
+
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+    <button (click)="goToGithub(html_url)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">build</i>
+    </button>
+  </div>
+</div>

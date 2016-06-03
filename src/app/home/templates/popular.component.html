@@ -1,0 +1,49 @@
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--6-col">
+        <h5>Popular Users</h5>
+        <div *ngIf="userData">
+            <div class="demo-card-wide mdl-card mdl-shadow--3dp" *ngFor="let user of popularUser" style="margin-bottom: 5%">
+              <img src="{{user.avatar_url}}"/>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">{{user.login}}</h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a href="{{user.html_url}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Github Profile
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdl-cell mdl-cell--6-col">
+        <h5>Popular Repositories</h5>
+        <div *ngIf="repoData">
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp" *ngFor="let repo of popularRepo" style="margin-bottom: 5%;">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">{{repo.full_name}}</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <p>
+                        <i class="material-icons">device_hub</i> {{repo.forks}}
+                    </p>
+                    <p>
+                        <strong><i class="material-icons">visibility</i></strong> {{repo.watchers}}
+                    </p>
+                    <p>
+                      <i class="material-icons">star</i> {{repo.stargazers_count}}
+                    </p>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a href="{{repo.html_url}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  View On Github
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
