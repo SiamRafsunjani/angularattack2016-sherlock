@@ -24,7 +24,8 @@
   - Latest issues
 
 ## Technology Stack
-
+  
+  - [Typescript](https://www.typescriptlang.org/)
   - [Angular 2](https://angular.io/)
   - [Github API](https://developer.github.com/v3/)
   - [Material Lite](https://getmdl.io/started/)
