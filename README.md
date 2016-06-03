@@ -1,5 +1,5 @@
 
-# [Github Bucket](http://sherlock.2016.angularattack.io/)
+# [Github Bucket](https://github-bucket.firebaseapp.com/)
 
 *Github Bucket* is a web app that brings all stuffs you love about [Github](https://github.com/) in a bucket
 
@@ -19,8 +19,9 @@
   - Daily NewsFeed
   - Most Favourite
   - Top Trending
-  - Most Starred
-  - Latest (weekly)
+  - Most Popular Users
+  - Most Popular Repositories
+  - Latest issues
 
 ## Technology Stack
 
